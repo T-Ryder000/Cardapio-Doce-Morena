@@ -5,6 +5,8 @@ const connection = require('./database/database')
 const session = require('express-session')
 const multer = require('multer')//upload de imagens
 
+require('dotenv').config(); // Assegure-se de que o dotenv está sendo chamado
+
 const { Op } = require('sequelize');// Para pesquisa de artigos
 
 //Tables
@@ -132,8 +134,9 @@ app.post('/search', (req, res) => {
   });
 });
 
+const PORT = process.env.PORT;
+console.log(PORT)
 
-
-app.listen(80, ()=>{
+app.listen(PORT, ()=>{
   console.log('O servidor está rodando!')
 })
