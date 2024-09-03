@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "98654321Thiago",
+    "database": "cardapio",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "98654321Thiago",
+    "database": "cardapio_test",
+    "host": "localhost",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "root",
+    "password": "98654321Thiago",
+    "database": "cardapio_production",
+    "host": "localhost",
+    "dialect": "mysql"
+  }
+}
