@@ -1,0 +1,54 @@
+/* Estilo da tabela de usuários */
+.table-container {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-container th, .table-container td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  color: white;
+}
+
+.table-container th {
+  font-weight: bold;
+  color: white;
+}
+
+.table-container tr:hover {
+  background-color: black;
+  cursor: pointer;
+
+  border-radius: 24px;
+}
+
+.no:hover {
+  background-color: #dddddd00 !important;
+}
+
+
+.btn {
+  border: none;
+  padding: 5px 10px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
+.edit-btn > i {
+  color: #ffc107;
+}
+
+.delete-btn > i{
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 4px;
+}
+
+
+.delete-form {
+  display: inline;
+}

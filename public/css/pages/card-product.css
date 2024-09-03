@@ -1,0 +1,111 @@
+.product-card-container {
+  display: flex;
+  justify-content: start;
+  align-items: stretch; /* Garante que todos os cards tenham a mesma altura */
+  gap: 20px; /* Espaço uniforme entre os cards */
+  flex-wrap: wrap;
+  padding: 5%;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* background-color: #fff;
+  color: black; */
+  background-color: black;
+  color: white;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: calc(100% / 5 - 20px); /* Calcula o espaço considerando o gap */
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+
+  gap: 1em;
+  padding: 0.2em;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: #f4c949;
+  transition: all 0.3s;
+}
+
+.card-img {
+  width: 100%;
+  height: 200px; /* Define uma altura fixa para as imagens */
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.card-body {
+  /* padding: 10px 20px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-title {
+  font-size: 1.3em;
+  margin: 0;
+  color: #333;
+}
+
+.card-price {
+  font-size: 1.8em;
+  margin: 0;
+  font-weight: bolder;
+}
+
+.product-card-options{
+  flex-grow: 1; /* Garante que a parte do corpo do card ocupe o espaço disponível */
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5em;
+}
+
+.btn-card-option{
+  padding: 0.5em;
+  border: none;
+  color: black;
+  background-color: #33333300;
+  border-radius: 8px;
+}
+
+.btn-edit:hover{
+  color: rgb(21, 21, 138);
+  background-color: white;
+}
+
+.btn-delete:hover{
+  color: rgb(204, 32, 32);
+  background-color: white;
+}
+
+@media screen and (max-width: 1200px) {
+  .product-card {
+    width: calc(100% / 4 - 20px); /* Ajusta para 2 cards por linha em telas menores */
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .product-card {
+    width: calc(100% / 3 - 20px); /* Ajusta para 2 cards por linha em telas menores */
+  }
+
+  .product-card-container {
+    gap: 15px; /* Ajusta o espaçamento para telas menores */
+    padding: 5%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .product-card {
+    width: calc(100% / 2 - 20px); /* Ajusta para 2 cards por linha em telas menores */
+  }
+}
+
+

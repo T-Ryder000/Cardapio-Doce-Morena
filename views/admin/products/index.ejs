@@ -1,0 +1,55 @@
+<%- include ( '../../partials/header.ejs' ) %> 
+<%- include ('../../partials/sidebar.ejs' ) %>
+<div class="container pb-5">
+  <h4 class="mt-5 color-text2">Produtos</h4>
+  <hr>
+  <a class="btn1 mt-5" href="/admin/products/new"
+    >Novo produto <i class="fa-solid fa-plus"></i
+  ></a>
+
+  <section class="product-card-container">
+    <% products.forEach(product=>{ %>
+    <div class="product-card">
+      <img
+        src="/<%= product.image %>"
+        alt="Produto"
+        class="card-img"
+      />
+      <div class="card-body">
+        <h2 class="card-title"><%= product.name %></h2>
+        <p class="card-price"><%= product.price %> R$</p>
+      </div>
+      <div class="product-card-options">
+        <a class="btn-card-option btn-edit" href="/admin/products/edit/<%= product.id %>"
+          ><i class="fa-solid fa-pen-to-square"></i
+        ></a>
+        <form action="/products/delete" method="post">
+          <input type="hidden" name="id" value="<%= product.id %>" />
+          <button class="btn-card-option btn-delete">
+            <i class="fa-solid fa-trash"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+    <% }) %>
+  </section>
+
+
+  <nav aria-label="Page navigation example" style="float: right;">
+    <ul class="pagination">
+      <% if(result.page > 1) { %>
+        <form method="get" action="/admin/products/page/<%= result.page - 1 %>" class="page-item">
+          <button class="page-link"><i class="fa-solid fa-circle-chevron-left"></i></button>
+        </form>
+      <% } %>
+      <% if(result.next) { %>
+        <form method="get" action="/admin/products/page/<%= result.page + 1 %>" class="page-item">
+          <button class="page-link"><i class="fa-solid fa-circle-chevron-right"></i></button>
+        </form>
+      <% } %>
+    </ul>
+  </nav>
+  <hr>
+</div>
+
+<%- include ( '../../partials/footer.ejs' ) %>

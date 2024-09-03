@@ -1,0 +1,129 @@
+.footer {
+  padding: 50px 20px 0px;
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.footer_content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha em telas menores */
+  gap: 20px; /* Adiciona espaçamento entre os itens */
+  padding: 3em 1em 0;
+}
+
+.footer_address,
+.footer_social,
+.footer_newsletter {
+  flex: 1; /* Permite que os itens se ajustem igualmente */
+  min-width: 200px; /* Define uma largura mínima para os itens */
+}
+
+.footer_address li,
+.footer_social li {
+  margin-bottom: 10px; /* Espaçamento entre os itens da lista */
+  color: #ffffff;
+}
+
+.footer_social {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer_social li a {
+  display: flex;
+  align-items: center; /* Centraliza o ícone e o texto verticalmente */
+  text-decoration: none;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.footer_social li a:hover {
+  color: #1db954; /* Cor de destaque ao passar o mouse */
+}
+
+.footer_newsletter {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaçamento entre os grupos de formulário */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.form_group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form_group input,
+.form_group textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form_group input:focus,
+.form_group textarea:focus {
+  border-color: #007bff; /* Cor de borda em foco */
+}
+
+textarea {
+  resize: vertical; /* Permite que o textarea seja redimensionado apenas verticalmente */
+}
+
+button[type="submit"] {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+
+.fab, .fa-solid {
+  margin-right: 8px;
+}
+
+.footer_separator {
+  margin: 80px 0 20px;
+  height: 1px;
+  background-color: #ffffff;
+  opacity: 0.2; /* Tornando o separador mais suave */
+}
+
+.footer_copyright {
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.footer_link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer_link:hover {
+  color: #1db954;
+}
+
+
+@media screen and (max-width:600px){
+  .footer_address, .footer_social{
+    padding-left: 0 !important;
+  }
+}

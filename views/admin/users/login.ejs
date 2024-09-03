@@ -1,0 +1,38 @@
+<%- include ( '../../partials/header.ejs' ) %> 
+<%- include ('../../partials/navbar.ejs' ) %>
+
+<body style="background-color: black;">
+  
+<div class="container container-login">
+  <div class="container-img-login mt-5">
+  <img class="img-login" src="/images/burguer.png" alt="imagem de um hamburguer">
+  </div>
+  <div class="container_card_login">
+    <div class="card_login mt-5">
+      <div class="card_header_login">
+        <h4 class="text-center">Login <i class="fa-regular fa-user"></i></h4>
+      </div>
+      <hr style="color: #f4c949;">
+      <div class="card_body_login">
+        <form class="form_login" method="post" action="/authenticate">
+          <div class="input_group mt-1">
+            <input class="input_login" type="email" name="email" placeholder="Digite seu email" required>
+          </div>
+          <div class="input_group mt-1">
+            <input class="input_login" type="password" name="password" id="password" placeholder="Digite sua senha" required>
+          </div>
+          <a href="#" class="text-register">Cadastre-se</a>
+          <br>
+          <button type="submit" class="btn1">Logar</button>
+        </form>
+        <hr style="color: #f4c949;">
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</body>
+<%- include ( '../../partials/bottombar.ejs' ) %>
+<%- include ( '../../partials/footer.ejs' ) %>

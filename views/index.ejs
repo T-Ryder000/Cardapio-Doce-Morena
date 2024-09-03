@@ -1,0 +1,117 @@
+<%- include ( 'partials/header.ejs' ) %> <%- include ( 'partials/navbar.ejs' )
+%>
+
+<body class="" style="background-color: black;">
+  <section class="banner">
+    <div class="container pt-5">
+      <div class="row banner-container">
+        <div class="col-12 col-lg-6 col-md-6 col-sm-12 col-one">
+          <div class="d-flex text-banner">
+            <h1 class="animate__animated animate__fadeInLeft animate__fast">
+              <b>Explore o Sabor da <b class="color-text1">Alegria!</b></b>
+            </h1>
+            <p
+              class="animate__animated animate__fadeInLeft animate__fast animate__delay-500ms"
+            >
+              Veja nosso cardápio recheado com sorvetes, tortas e salgados
+              feitos com amor. Encontre suas opções favoritas e aproveite!
+            </p>
+          </div>
+          <a
+            target="_blank"
+            class="btn btn-sm btn-white btn-social mr-3 animate__animated animate__fadeIn animate__fast background-color1 animate__delay-1s background-color1"
+          >
+            <i class="fab fa-instagram icon-social "></i>
+          </a>
+          <a
+            class="btn btn-sm btn-white btn-social animate__animated animate__fadeIn animate__fast background-color1 animate__delay-1s"
+          >
+            <i class="fab fa-whatsapp icon-social "></i>
+          </a>
+          <a
+            class="btn btn-sm btn-white btn-social mr-3 animate__animated animate__fadeIn animate__fast background-color1 animate__delay-1s"
+          >
+            <i class="fa fa-phone "></i>
+          </a>
+        </div>
+
+        <div class="col-6 no-mobile banner-container-image">
+          <div class="card-banner"></div>
+          <div class="d-flex img-banner">
+            <img src="/images/burguer.png" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <%- include ( 'partials/nav-categories.ejs' ) %>
+
+
+  <h1 class="section-title container mt-5">CARDÁPIO</h1>
+  <form method="post" action="/search" class="search-form  mb-3">
+    <input class="search-input" type="search" name="name" placeholder="Pesquise o que deseja" required>
+    <button class="search-btn fa-solid fa-magnifying-glass"></button>
+  </form>
+
+
+  <section class="category-section-home container mt-5 mb-5">
+    <ul class="category-list-home mt-2">
+      <% categories.forEach(category => { %>
+        <form action="/products/page/1" method="post" class="category-card-home">
+          <input type="hidden" name="idCategory" value="<%= category.id %>" />
+          <button class="btn-category-home">
+            <div class="category-image-container-home">
+              <img src="<%= category.image%>" alt="Imagem da categoria <%= category.name %>">
+              <p class="category-name-home"><%= category.name %></p>
+            </div>
+          </button>
+        </form>
+      <% }) %>
+    </ul>
+  </section>
+
+
+  <!-- Futuro -->
+  <!-- <section class="reserva" id="reservas">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-one">
+                <div class="card-secondary wow fadeInUp">
+                    <div class="row">
+                        <div class="col-12 col-lg-7 col-md-7 col-sm-12">
+                            
+                            <h1 class="title color-text1">
+                                <b>Quer reservar um horário?</b>
+                            </h1>
+                            <p class="pr-5 color-text2">
+                                Mande uma mensagem clicando no botão abaixo
+                                <br>
+                                Reserve sua data e horário de forma simples e rápida.
+                            </p>
+                            <a class="btn1 mt-4 wow fadeIn delay-05s" href="#" id="btnReserva" target="_blank">
+                                Fazer reserva
+                            </a>
+                        </div>
+
+                        <div class="col-5 no-mobile">
+                            <div class="card-reserva"></div>
+                            <div class="d-flex img-banner-reserva">
+                                <img src="/images/" />
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+  </section> -->
+
+  <%- include ( 'partials/bottombar.ejs' ) %>
+
+</body>
+
+<%- include ( 'partials/footer.ejs' ) %>

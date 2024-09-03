@@ -1,0 +1,89 @@
+/* Estilos para o título da seção */
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: #f4c949;;
+  margin-bottom: 2rem;
+}
+
+/* Estilos para o container da seção */
+.category-section-home {
+  padding: 0 1rem;
+}
+
+/* Estilos para a lista de categorias */
+.category-list-home {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+
+  /* column-count: 4;
+  column-gap: 10px;
+  padding: 10px;  */
+}
+
+/* Estilos para os cartões de categoria */
+.category-card-home {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: calc(100%/4);
+  height: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: 1px solid white;
+}
+
+.category-card-home:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  border: 2px solid #f4c949;
+}
+
+.btn-category-home{
+  height: 100%;
+  border: none;
+}
+
+/* Container da imagem */
+.category-image-container-home {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.category-image-container-home img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0;
+}
+
+.category-name-home {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+@media screen and (max-width: 700px){
+  .category-card-home{
+    max-width: calc(100%/2.5);
+  }
+  
+}

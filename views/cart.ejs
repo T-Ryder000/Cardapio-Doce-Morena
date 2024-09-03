@@ -1,0 +1,30 @@
+<%- include ( 'partials/header.ejs' ) %> <%- include ( 'partials/navbar.ejs' )
+%>
+
+
+<div class="cart-container container mt-5 mb-5 p-3">
+  <h4 class="mt-5">Seu Carrinho</h4>
+  <hr>
+  <div id="cart-list">
+    <!-- .... -->
+  </div>
+
+  <div class="cart-summary  mb-5">
+      <h2>Resumo do Pedido</h2>
+      <p>Frete: R$ <span class="frete-price">00,00</span></p>
+      <p>Produtos: R$ <span class="product-price">00,00</span></p>
+      <p>Total: R$ <span class="total-price">00,00</span></p>
+      <a href="" class="checkout-btn" id="btnEtapaResumo" target="_blank">
+        Enviar pedido
+      </a>
+  </div>
+</div>
+
+
+<script src="/js/showCart.js"></script>
+<script src="/js/sendRequest.js"></script>
+
+
+
+<%- include ( 'partials/bottombar.ejs' ) %>
+<%- include ( 'partials/footer.ejs' ) %>

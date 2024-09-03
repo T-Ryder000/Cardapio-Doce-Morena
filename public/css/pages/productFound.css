@@ -1,0 +1,62 @@
+/* Container geral */
+.container-found {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Separador */
+.separator {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* Container dos artigos */
+.container_product {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Card do artigo */
+.card_product {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+}
+
+/* Link do artigo */
+.product_link {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Imagem do card */
+.img_card_product {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Informações do card */
+.info_card_product {
+  padding: 15px;
+}
+
+/* Título do artigo */
+.title_card_product {
+  font-size: 20px;
+  color: #333;
+  margin: 0;
+}
+
+/* Data do artigo */
+.date_card_product {
+  font-size: 14px;
+  color: #777;
+  margin-top: 5px;
+}

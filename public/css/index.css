@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@import url('home/navbar.css');
+@import url('admin/sidebar.css');
+@import url('home/banner.css');
+@import url('home/card_category.css');
+@import url('pages/card-product.css');
+@import url('admin/new.css');
+@import url('home/bottombar.css');
+@import url('admin/login.css');
+@import url('admin/new-user.css');
+@import url('admin/table.css');
+@import url('pages/page.css');
+@import url('pages/modal.css');
+@import url('home/search.css');
+@import url('pages/cart.css');
+@import url('pages/profile.css');
+@import url('home/reserve.css');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html, body{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #101920 !important;
+}
+
+a, li{
+  list-style: none !important;
+  text-decoration: none !important;
+  color: black;
+}
+
+.color-text1{
+  color: #f4c949;
+}
+.color-text2{
+  color: white;
+}
+
+.background-color1{
+  background-color: #f4c949 !important;
+}
+
+.background-color2{
+  background-color: white;
+}
+
+
+.btn1 {
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bolder;
+  color: black;
+  background-color: #f4c949;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  border: none;
+}
+
+.btn1:hover {
+  transition: background-color 0.3s;
+  background-color:  #eeb200;
+}

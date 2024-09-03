@@ -1,0 +1,61 @@
+<%- include ( 'partials/header.ejs' ) %> 
+<%- include ( 'partials/navbar.ejs' ) %>
+
+
+<div class="container-found container">
+  <h4 class="mt-5 color-text2">Resultados da pesquisa</h4>
+  <hr>
+
+  <div class="product-card-container">
+    <% products.forEach(product => { %>
+      <a class="product-card" href="#popup" onclick="writeModal(this)" data-type="search">
+        <img
+          src="/<%= product.image %>"
+          alt="Produto"
+          class="card-img"
+        />
+        <div class="card-body">
+          <h2 class="card-title" id="name"><%= product.name %></h2>
+          <p class="card-price"><%= product.price %> R$</p>
+        </div>
+        <input type="hidden" name="idProduct" value="<%=  product.id %>" id="idProduct-search" />
+        <input type="hidden" id="title-search" value="<%=  product.name %>" />
+        <input type="hidden" id="description-search" value="<%=  product.description %>" />
+        <input type="hidden" id="price-search" value="<%= product.price %>">
+        <input type="hidden" id="image-search" value="/<%= product.image %>">
+      </a>
+    <% }) %>
+  </div>
+</div>
+
+
+<div class="popup" id="popup">
+  <div class="popup__content">
+    <div class="info-modal">
+      <img class="img-modal" src="" alt="">
+      <div class="text-container-modal">
+        <br>
+        <h3 class="heading-secondary title-modal"></h3>
+        <br>
+        <p class="popup__text description-modal"></p>  
+      </div>
+    </div>  
+
+    <div class="item-quantity">
+      <label for="quantity1">Quantidade:</label>
+      <input type="number" id="quantity1" value="1" min="1" max="99">
+    </div>
+    <div class="buttons-modal">
+      <a href="#" class="button-close">Fechar</a>
+      <a href="#" class="button" id="btnAddCart">Adicionar ao Carrinho</a>
+    </div>
+  </div>
+</div>
+
+
+<script src="/js/addCart.js"></script>
+
+
+<%- include ( 'partials/bottombar.ejs' ) %>
+
+<%- include ( 'partials/footer.ejs' ) %>

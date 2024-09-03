@@ -1,0 +1,97 @@
+/* Container geral */
+.container-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+.container-img-login{
+  max-width: 600px;
+  display: flex;
+  flex-direction: row-reverse;
+  overflow: hidden;
+}
+.img-login{
+  opacity: 0.3;
+}
+
+/* Estilo do card de login */
+.card_login {
+  background: black;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  max-width: 400px;
+  height: 400px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+/* Cabeçalho do card */
+.card_header_login{
+  display: flex;
+  justify-content: center;
+}
+.card_header_login h4 {
+  border: 1px solid #f4c949;
+  padding: 40px 20px ;
+  border-radius: 50%;
+  margin: 0;
+  font-size: 18px;
+  color:#f4c949;
+}
+
+.login-logo{
+  height:30px;
+  border-radius: 50%;
+}
+
+/* Corpo do card */
+.card_body_login {
+  margin-top: 20px;
+}
+
+/* Formulário de login */
+.form_login {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Estilo dos inputs */
+.input_login {
+  border: none;
+  border-radius: 4px;
+  border-bottom: 2px solid #ccc;
+  padding: 7px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+
+.input_login:focus {
+  transition: all 0.1s;
+  border: 1px solid #f4c949;
+  box-shadow: 0 0 0 2px #ffc71e;
+  outline: none;
+}
+
+
+.text-register{
+  font-size: 14px;
+  color: gray;
+  text-align: end;
+}
+
+@media screen and (max-width:700px){
+  .container-login {
+    justify-content: center;
+  }
+  .container-img-login{
+    display: none;
+  }
+}

@@ -1,0 +1,38 @@
+<%- include ( '../../partials/header.ejs' ) %>
+<%- include ( '../../partials/navbar.ejs' ) %>
+
+<div class="form-container mt-5">
+  <h3>Criar Nova Categoria</h3>
+  <form action="/categories/save" method="post" class="category-form" enctype="multipart/form-data">
+      <label for="category-name" class="form-label mt-1">Nome da categoria</label>
+      <input type="text" name="name" id="category-name" class="form-input mt-1">
+      
+      <label for="category-icon" class="form-label mt-1">Link do ícone</label>
+      <input type="text" name="icon" id="category-icon" class="form-input mt-1">
+      
+      <label for="category-image" class="form-label mt-1">Imagem</label>
+      <input id="upload_image" class="upload_image" type="file" name="image" style="display: none">
+      <button id="upload_button" class="custom_upload_button">Escolher Arquivo</button>
+      <span id="file_name" class="file_name">Nenhum arquivo escolhido</span>
+      
+      <button class="form-button mt-4">Cadastrar</button>
+  </form>
+</div>
+<%- include ( '../../partials/footer.ejs' ) %>
+
+
+
+<script>
+  //button de upload de imagens
+  document.getElementById('upload_button').addEventListener('click', function(e) {
+  document.getElementById('upload_image').click();
+
+  e.preventDefault()
+});
+
+document.getElementById('upload_image').addEventListener('change', function() {
+  var fileName = this.files.length > 0 ? this.files[0].name : 'Nenhum arquivo escolhido';
+  document.getElementById('file_name').textContent = fileName;
+});
+
+</script>

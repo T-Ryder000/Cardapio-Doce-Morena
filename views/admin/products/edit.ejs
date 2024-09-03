@@ -1,0 +1,147 @@
+<%- include ( '../../partials/header.ejs' ) %>
+<%- include ( '../../partials/navbar.ejs' ) %>
+
+<div class="form-container mt-5">
+  <h3>Editar produto</h3>
+  <form action="/products/update" method="post" class="product-form" enctype="multipart/form-data">
+      <div class="form-group">
+          <div class="form-group-item">
+              <label for="product-name" class="form-label mt-1">Nome do produto</label>
+              <input type="text" name="name" id="product-name" class="form-input mt-1" value="<%= product.name %>">
+          </div>
+          <div class="form-group-item">
+              <label for="product-price" class="form-label mt-1">Preço</label>
+              <input type="number" name="price" id="product-price" class="form-input mt-1" value="<%= product.price %>">
+          </div>
+      </div>
+      
+      <div class="form-group">
+          <div class="form-group-item">
+              <label for="product-description" class="form-label mt-1">Descrição</label>
+              <input type="text" name="description" id="product-description" class="form-input mt-1" value="<%= product.description %>">
+          </div>
+          <div class="form-group-item">
+              <label for="product-stock" class="form-label mt-1">Estoque</label>
+              <input type="number" name="stock" id="product-stock" class="form-input mt-1" value="<%= product.stock %>">
+          </div>
+      </div>
+
+      <label for="product-additional" class="form-label mt-1">Adicionais</label>
+      <div id="additional-container">
+        <% (product.additional || []).forEach((item, index) => { %>
+          <div class="additional-item">
+            <input type="text" name="additional[]" value="<%= item %>" class="form-input mt-1" placeholder="Adicional <%= index + 1 %>">
+            <button type="button" class="remove-additional-btn">Remover</button>
+          </div>
+        <% }) %>
+      </div>
+      <button type="button" id="add-additional-btn" class="form-button mt-2">Adicionar Adicional</button>    
+
+      <label for="product-flavor" class="form-label mt-1">Sabores</label>
+      <div id="flavor-container">
+        <% (product.flavor || []).forEach((item, index) => { %>
+          <div class="flavor-item">
+            <input type="text" name="flavor[]" value="<%= item %>" class="form-input mt-1" placeholder="Sabor <%= index + 1 %>">
+            <button type="button" class="remove-flavor-btn">Remover</button>
+          </div>
+        <% }) %>
+      </div>
+      <button type="button" id="add-flavor-btn" class="form-button mt-2">Adicionar Sabor</button>
+
+
+      <label for="product-image" class="form-label mt-1">Imagem</label>
+      <input id="upload_image" class="upload_image" type="file" style="display:none;" name="image" >
+      <button id="upload_button" class="custom_upload_button">Atualizar Arquivo</button>
+      <span id="file_name" class="file_name" >
+        <%= product.image  ? product.image : 'Nenhum arquivo escolhido' %>
+      </span>
+
+      <label for="product-short-description" class="form-label mt-1">Descrição curta</label>
+      <input type="text" name="shortDescription" id="product-short-description" class="form-input mt-1" value="<%= product.shortDescription %>">
+      
+      <label for="product-status" class="form-label mt-1">Estado</label>
+      <select name="status" id="product-status" class="form-select mt-1">
+        <% if(product.status == 'inativo'){ %>
+          <option value="ativo">Ativo</option>
+          <option value="inativo" selected>Inativo</option>
+        <% } else{ %> 
+            <option value="ativo" selected>Ativo</option>
+            <option value="inativo">Inativo</option> 
+        <% } %>    
+      </select>
+      
+      <label for="product-category" class="form-label mt-1">Categoria</label>
+      <select name="category" id="product-category" class="form-select mt-1">
+          <% categories.forEach((category)=>{ %>
+            <% if(category.id == product.categoryId){ %>
+              <option value="<%= category.id %>" selected><%= category.name %></option>
+            <% }else{ %>
+              <option value="<%= category.id %>"><%= category.name %></option>
+            <% } %>  
+          <% }) %>
+      </select>
+      
+      <input type="hidden" value="<%= product.id %>" name="id">
+      <button class="form-button mt-4">Atualizar</button>
+  </form>
+</div>
+
+<%- include ( '../../partials/footer.ejs' ) %>
+
+<script>
+  // Upload de imagens
+  document.getElementById('upload_button').addEventListener('click', function(e) {
+    document.getElementById('upload_image').click();
+    e.preventDefault();
+  });
+
+  document.getElementById('upload_image').addEventListener('change', function() {
+    var fileName = this.files.length > 0 ? this.files[0].name : 'Nenhum arquivo escolhido';
+    document.getElementById('file_name').textContent = fileName;
+  });
+
+ // Adicionar campos para adicionais
+document.getElementById('add-additional-btn').addEventListener('click', function() {
+  const container = document.getElementById('additional-container');
+  
+  const div = document.createElement('div');
+  div.classList.add('additional-item');
+  div.innerHTML = `
+    <input type="text" name="additional[]" class="form-input mt-1" placeholder="Novo Adicional">
+    <button type="button" class="remove-additional-btn">Remover</button>
+  `;
+  container.appendChild(div);
+});
+
+// Remover campos adicionais
+document.getElementById('additional-container').addEventListener('click', function (e) {
+  if (e.target.classList.contains('remove-additional-btn')) {
+    e.target.parentElement.remove(); // Remove o div que contém o input e o botão
+  }
+});
+
+// Adicionar campos para sabores
+document.getElementById('add-flavor-btn').addEventListener('click', function() {
+  const container = document.getElementById('flavor-container');
+  
+  const div = document.createElement('div');
+  div.classList.add('flavor-item');
+  div.innerHTML = `
+    <input type="text" name="flavor[]" class="form-input mt-1" placeholder="Novo Sabor">
+    <button type="button" class="remove-flavor-btn">Remover</button>
+  `;
+  container.appendChild(div);
+});
+
+// Remover campos de sabores
+document.getElementById('flavor-container').addEventListener('click', function(e) {
+  if (e.target.classList.contains('remove-flavor-btn')) {
+    e.preventDefault(); // Evitar qualquer comportamento padrão do botão
+    const flavorItem = e.target.closest('.flavor-item'); // Encontrar o div específico que contém o input e o botão
+    if (flavorItem) {
+      flavorItem.remove(); // Remover apenas este div
+    }
+  }
+});
+
+</script>

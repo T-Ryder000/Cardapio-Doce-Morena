@@ -1,0 +1,27 @@
+<%- include ( '../../partials/header.ejs' ) %> 
+<%- include ('../../partials/navbar.ejs' ) %>
+
+<body style="background-color: #f4c949bd;">
+
+<div class="container-new-user">
+  <hr class="separator">
+  <div class="card_new_category">
+    <h3 class="text-center" style="color: #ffc71e;">Atualizar Usuário</h3>
+    <form method="post" action="/users/update" class="form_new_user">
+      <label for="name">name</label>
+      <input class="form-control mt-2" type="text" name="name" id="name" placeholder="JohnDoe" value="<%= user.name %>" required>
+      <label for="email">Email</label>
+      <input class="form-control mt-2" type="email" name="email" placeholder="email@exemplo.com" value="<%= user.email %>" required>
+      <label for="password">Senha</label>
+      <input class="form-control mt-2" type="password" name="password" id="password" placeholder="********" value="<%= user.password %>" required>
+         
+      <input type="hidden" value="<%= user.id %>" name="id">
+      <button type="submit" class="btn1">Atualizar</button>
+    </form>
+  </div>
+</div>
+
+</body>
+
+<%- include ( '../../partials/bottombar.ejs' ) %>
+<%- include ( '../../partials/footer.ejs' ) %>

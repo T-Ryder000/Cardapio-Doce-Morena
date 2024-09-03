@@ -1,0 +1,98 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %>
+
+<body>
+  <div class="container">
+    <% categories.forEach(category => { %>
+      <% if(category.id == categoryPage){ %>
+        <h4 class="mt-5 color-text2"><%= category.name %></h4>
+      <% } %>
+    <% }) %>
+    <hr>
+    <div class="container_product">
+      <section class="product-card-container">
+        <% result.products.forEach(product => { %>
+          <% if(product.categoryId == categoryPage) { %>
+            <a class="product-card" href="#popup" onclick="writeModal(this)" data-type="sample">
+              <img
+                src="/<%= product.image %>"
+                alt="<%= product.name %>"
+                class="card-img"
+              />
+              <div class="card-body">
+                <h2 class="card-title" id="name"><%= product.name %></h2>
+                <p class="card-price"><%= product.price %> R$</p>
+              </div>
+              <input type="hidden" name="idProduct" value="<%=  product.id %>" id="idProduct-sample" />
+              <input type="hidden" id="title-sample" value="<%=  product.name %>" />
+              <input type="hidden" id="description-sample" value="<%=  product.description %>" />
+              <input type="hidden" id="price-sample" value="<%= product.price %>">
+              <input type="hidden" id="image-sample" value="/<%= product.image %>">
+              <% (product.additional || []).forEach((item, index) => { %>
+                  <input type="hidden" name="additional[]" value="<%= item %>" class="form-input mt-1" placeholder="Adicional <%= index + 1 %>">
+              <% }) %>
+
+              <% (product.flavor || []).forEach((item, index) => { %>
+                  <input type="hidden" name="flavor[]" value="<%= item %>" class="form-input mt-1" placeholder="Sabor <%= index + 1 %>">
+              <% }) %>
+            </a>   
+            
+          <% } %>
+        <% }) %>
+      </section>
+    </div>
+
+    <nav aria-label="Page navigation example" style="float: right;">
+      <ul class="pagination">
+        <% if(result.page > 1) { %>
+          <form method="post" action="/products/page/<%= result.page - 1 %>" class="page-item">
+            <input type="hidden" name="idCategory" value="<%= categoryPage %>" />
+            <button class="page-link"><i class="fa-solid fa-circle-chevron-left"></i></button>
+          </form>
+        <% } %>
+        <% if(result.next) { %>
+          <form method="post" action="/products/page/<%= result.page + 1 %>" class="page-item">
+            <input type="hidden" name="idCategory" value="<%= categoryPage %>" />
+            <button class="page-link"><i class="fa-solid fa-circle-chevron-right"></i></button>
+          </form>
+        <% } %>
+      </ul>
+    </nav>
+    <hr>
+  </div>
+
+ 
+
+
+  <div class="popup" id="popup">
+    <div class="popup__content">
+      <div class="info-modal">
+        <img class="img-modal" src="" alt="">
+        <div class="text-container-modal">
+          <br>
+          <h3 class="heading-secondary title-modal"></h3>
+          <br>
+          <p class="popup__text description-modal"></p>  
+        </div>
+      </div>    
+
+      <div class="item-quantity">
+        <label for="quantity1">Quantidade:</label>
+        <input type="number" id="quantity1" value="1" min="1" max="99">
+      </div>
+      <div class="buttons-modal">
+        <a href="#" class="button-close">Fechar</a>
+        <a href="#" class="button" id="btnAddCart">Adicionar ao Carrinho</a>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <%- include('partials/bottombar.ejs') %>
+  <%- include('partials/footer.ejs') %>
+  
+
+<script src="/js/addCart.js"></script>
+
+</body>

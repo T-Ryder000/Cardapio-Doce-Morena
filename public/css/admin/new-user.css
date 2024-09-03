@@ -1,0 +1,58 @@
+/* Container geral */
+.container-new-user {
+  width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Separadores */
+.separator {
+  border: 0;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+/* Card de criação de usuário */
+.card_new_category {
+  background: black;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  box-sizing: border-box;
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+/* Título do card */
+.card_new_category h3 {
+  font-size: 24px;
+  color: #333;
+  margin: 0 0 20px;
+}
+
+/* Estilo do formulário */
+.form_new_user {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  border: none;
+  border-radius: 8px;
+  border-bottom: 2px solid #ccc;
+  padding: 7px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+}
+
+.form-control:focus {
+  transition: all 0.1s;
+  border: 1px solid #f4c949;
+  box-shadow: 0 0 0 2px #ffc71e;
+  outline: none;
+}
+
+

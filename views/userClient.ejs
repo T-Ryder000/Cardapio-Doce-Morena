@@ -1,0 +1,25 @@
+<%- include('partials/header.ejs') %> 
+<%- include('partials/navbar.ejs') %>
+    
+<div class="user-profile-container pt-5">
+    <% users.forEach(user => { %>
+  <div class="user-profile">
+      <div class="user-info">
+          <img src="https://via.placeholder.com/300" alt="User Profile Picture" class="profile-picture">
+          <h1><%= user.name %></h1>
+          <p><strong>Email:</strong> <%= user.email %></p>
+          <p><strong>Telefone:</strong> </p>
+          <p><strong>Endereço:</strong> </p> 
+          <p><strong>CPF</strong> </p>
+          <p class="bio"><strong>Bio:</strong> </p> <!-- Biografia curta -->
+      </div>
+      <div class="user-actions">
+          <button class="btn">Edit Profile</button>
+          <button class="btn">Logout</button>
+      </div>
+  </div>
+    <% }) %>
+</div>
+
+<%- include('partials/bottombar.ejs') %>
+<%- include('partials/footer.ejs') %>

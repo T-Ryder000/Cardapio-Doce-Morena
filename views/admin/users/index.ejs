@@ -1,0 +1,37 @@
+<%- include ( '../../partials/header.ejs' ) %> 
+<%- include ('../../partials/sidebar.ejs' ) %>
+
+<div class="container pb-5">
+  <h4 class="mt-5 color-text2">Usuários</h4>
+  <hr>
+  <a href="/admin/users/new" class="btn1 mt-5">Novo Usuário <i class="fa-solid fa-plus"></i></a>
+  <table class="table-container mt-5">
+    <thead>
+      <tr class="no">
+        <th >ID</th>
+        <th>Email</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% users.forEach(user => { %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td style="text-align: end;">  
+            <a class="btn edit-btn" href="/admin/users/edit/<%= user.id %>">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </a>
+            <form class="delete-form" action="/users/delete" method="post">
+              <input type="hidden" name="id" value="<%= user.id %>">
+              <button class="btn delete-btn"><i class="fa-solid fa-trash"></i></button>
+            </form>
+        </td>
+      </tr>
+      <% }) %>
+
+    </tbody>
+  </table>
+</div>
+
+<%- include ( '../../partials/footer.ejs' ) %>

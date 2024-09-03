@@ -1,0 +1,115 @@
+.navbar-container{
+  background-color: black;
+}
+
+.navbar{
+  font-weight: bolder;
+  /* padding: 3em 0.5em; */
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center !important;
+}
+.navbar-logo-container{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 0.1em 1em;
+  background-color: black;
+}
+.navbar-logo{
+  height: 80%;
+  border-radius: 50%;
+}
+.navbar-ul{
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+
+/* Efeito de linha abaixo do texto com hover */
+.texto-com-hover {
+  position: relative;
+  display: inline-block;
+}
+.texto-com-hover .linha {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #f4c949;
+  transition: width 0.3s ease;
+}
+.texto-com-hover:hover .linha {
+  width: 100%;
+}
+
+
+
+/* Menu de navegação mobile*/
+.navigation-container-mobile{
+  display: none;
+}
+
+.cart-navbar{
+  display: none !important;
+  font-size: 24px;
+  border: 1px solid #f4c949 ;
+  border-radius: 50%;
+  color: #f4c949;
+  padding: 1em;
+  transition: all 0.2s;
+}
+
+.cart-navbar:active{
+  transform:scale(1.03);
+  transition: all 0.2s;
+}
+
+/* Responsividade */
+
+@media screen and (max-width:800px) {
+  .cart-navbar{
+    display: block !important;
+  }
+  .navbar-ul{
+    display: none;
+  }
+  .header-container{
+    height: auto;
+  }
+  .navigation-container-mobile{
+    display: block;
+  }
+  
+  .navigation-container{
+    display: none;
+  }
+
+  .header-container_menu-mobile{
+    padding-top: 1em;
+    border-bottom: 1px solid white;
+    border-radius: 8px;
+  }
+
+  .navbar{
+    height: 100px;
+  }
+
+  .navbar-container{
+    padding: 0.5em;
+  }
+
+  .navbar-logo-container{
+    padding: 0.1em 1em;
+  }
+  .navbar-logo{
+    height: 80%;
+    border-radius: 50%;
+  }
+}
