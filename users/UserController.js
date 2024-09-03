@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('./User')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs');
 const adminAuth = require('../middlewares/adminAuth')
 
 router.get('/admin/users', adminAuth, (req, res)=>{
