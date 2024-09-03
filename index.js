@@ -39,9 +39,12 @@ connection.authenticate().then(()=>{
 
 //Session ( Falta o Redis )
 app.use(session({
-  secret: "qualquercoisa",
-  cookie: { maxAge: 300000000000 }
-}))
+  secret: 'seuSegredoAqui',
+  resave: false,  // Define explicitamente se a sessão deve ser regravada no store mesmo sem modificações
+  saveUninitialized: false,  // Define se novas sessões não modificadas devem ser salvas
+  cookie: { secure: false }  // Em produção, deve ser `true` se estiver usando HTTPS
+}));
+
 
 //Use controllers
 app.use('/', productsController)
