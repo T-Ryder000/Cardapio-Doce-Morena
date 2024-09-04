@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Compiled directories
+dist/
+build/
+
+# Configurações locais de IDEs
+.vscode/
+
+# Chaves e arquivos de autenticação
+*.pem
+*.key
+
+# Dumps e backups
+*.sql
