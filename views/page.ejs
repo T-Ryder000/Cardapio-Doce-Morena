@@ -66,23 +66,82 @@
 
   <div class="popup" id="popup">
     <div class="popup__content">
-      <div class="info-modal">
-        <img class="img-modal" src="" alt="">
-        <div class="text-container-modal">
-          <br>
-          <h3 class="heading-secondary title-modal"></h3>
-          <br>
-          <p class="popup__text description-modal"></p>  
-        </div>
-      </div>    
+      <div class="popup__content__sub">
+        <div class="info-modal">
+          <img class="img-modal" src="" alt="">
+          <div class="text-container-modal">
+            <br>
+            <h3 class="heading-secondary title-modal"></h3>
+            <br>
+            <p class="popup__text description-modal"></p>  
+          </div>
+        </div>    
 
-      <div class="item-quantity">
+        <div class="content_add_modal">
+          <!-- Additional (Adicionais) -->
+          <label for="additional" class="form-label mt-1">Adicionais</label>
+          <div class="d-flex content-add">
+            <div id="additional-container">
+                <select name="additional[]" class="form-select mt-1">
+                    <option value="" disabled selected>Escolher adicional</option>
+                    <option value="granulado">Granulado</option>
+                    <option value="chocolate branco">Chocolate Branco</option>
+                    <option value="castanha">Castanha</option>
+                    <option value="frutas secas">Frutas Secas</option>
+                </select>
+            </div>
+            <button id="add-additional" class="btn-add btn1"><i class="fa-solid fa-plus"></i></button>
+          </div>
+
+          <!-- Flavors (Sabores) -->
+          <label for="flavor" class="form-label mt-1">Sabores</label>
+          <div class="d-flex content-add">
+            <div id="flavor-container">
+                <select name="flavor[]" class="form-select mt-1">
+                    <option value="" disabled selected>Escolher sabor</option>
+                    <option value="morango">Morango</option>
+                    <option value="chocolate">Chocolate</option>
+                    <option value="baunilha">Baunilha</option>
+                    <option value="limão">Limão</option>
+                </select>
+            </div>
+            <button id="add-flavor" class="btn-add btn1"><i class="fa-solid fa-plus"></i></button>
+          </div>
+
+        </div>
+      </div>
+
+   
+      <div class="d-flex container-complement">
+        <div class="item-text mt-2">
+          <label for="textarea-modal">Complemento:</label>
+          <textarea name="textarea-modal" class="textarea-modal" id=""></textarea>
+        </div>
+
+        <div class="content-items-add">
+          <div class="items-add ">
+            <ul class="ul-items-add additional-content-items">
+              <!-- --- -->
+            </ul>
+          </div>
+
+          <div class="items-add ">
+            <ul class="ul-items-add flavor-content-items">
+              <!-- --- -->
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="item-quantity mt-2">
         <label for="quantity1">Quantidade:</label>
         <input type="number" id="quantity1" value="1" min="1" max="99">
       </div>
+
       <div class="buttons-modal">
         <a href="#" class="button-close">Fechar</a>
-        <a href="#" class="button" id="btnAddCart">Adicionar ao Carrinho</a>
+        <a href="#" class="button" id="btnAddCart">Adicionar <i class="fa-solid fa-cart-shopping"></i></a>
       </div>
     </div>
   </div>
@@ -96,3 +155,96 @@
 <script src="/js/addCart.js"></script>
 
 </body>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // Adicionar mais campos para sabores
+  document.getElementById('add-additional').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Seleciona o valor atual do <select>
+    const additionalSelect = document.querySelector('#additional-container select');
+    const selectedValue = additionalSelect.value;
+
+    if (selectedValue) {
+      var additionalContainer = document.querySelector('.additional-content-items');
+      var newInput = document.createElement('li');
+      newInput.classList.add('item-additional');  // Removi o ponto
+
+      // Cria o HTML do novo item com botão de remover
+      newInput.innerHTML = `
+        <p>${selectedValue}</p>
+        <button type="button" class="remove-additional-btn"><i class="fa-solid fa-x"></i></button>
+      `;
+      
+      additionalContainer.appendChild(newInput);
+
+      // Adiciona o event listener no botão de remover assim que o item é criado
+      newInput.querySelector('.remove-additional-btn').addEventListener('click', function() {
+        additionalContainer.removeChild(newInput);
+      });
+     
+    } else {
+      console.log("Nenhum sabor selecionado.");
+    }
+  });
+
+  // Delegação de evento para remover sabores existentes (caso já haja sabores adicionados no HTML)
+  document.querySelector('.additional-content-items').addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('remove-additional-btn')) {
+      const itemToRemove = e.target.closest('li.item-additional');
+      itemToRemove.remove();
+    }
+  });
+});
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  
+  // Adicionar mais campos para sabores
+  document.getElementById('add-flavor').addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // Seleciona o valor atual do <select>
+    const flavorSelect = document.querySelector('#flavor-container select');
+    const selectedValue = flavorSelect.value;
+
+    if (selectedValue) {
+      var flavorContainer = document.querySelector('.flavor-content-items');
+      var newInput = document.createElement('li');
+      newInput.classList.add('item-flavor');  // Removi o ponto
+
+      // Cria o HTML do novo item com botão de remover
+      newInput.innerHTML = `
+        <p>${selectedValue}</p>
+        <button type="button" class="remove-flavor-btn">x</button>
+      `;
+      
+      flavorContainer.appendChild(newInput);
+
+      // Adiciona o event listener no botão de remover assim que o item é criado
+      newInput.querySelector('.remove-flavor-btn').addEventListener('click', function() {
+        flavorContainer.removeChild(newInput);
+      });
+     
+    } else {
+      console.log("Nenhum sabor selecionado.");
+    }
+  });
+
+  // Delegação de evento para remover sabores existentes (caso já haja sabores adicionados no HTML)
+  document.querySelector('.flavor-content-items').addEventListener('click', function(e) {
+    if (e.target && e.target.classList.contains('remove-flavor-btn')) {
+      const itemToRemove = e.target.closest('li.item-flavor');
+      itemToRemove.remove();
+    }
+  });
+});
+
+
+</script>
